@@ -21,6 +21,10 @@ body {
     font-size: 1.5rem;
 }
 
+#preview-profile-image{
+    width: 15rem !important;
+    height: 15rem !important;
+}
 
 .form-label {
     font-size: 2rem;
