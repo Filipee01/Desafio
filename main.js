@@ -8,30 +8,32 @@ const ageText = document.querySelectorAll('.card-text')[0];
 const locationText = document.querySelectorAll('.card-text')[1];
 const bioText = document.querySelectorAll('.card-text')[2];
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  nameValidate()
-  ageValidate()
-  locateValidate()
-  bioValidate()
-
-  const name = nameInput.value;
-  const age = ageInput.value;
-  const location = locationInput.value;
-  const bio = bioInput.value;
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   
-  cardTitle.textContent = name;
-  ageText.textContent = `Idade: ${age} anos`;
-  locationText.textContent = `Localização: ${location}`;
-  bioText.textContent = `Biografia: ${bio}`;
+  const nameValid = nameValidate();
+  const ageValid = ageValidate();
+  const locateValid = locateValidate();
+  const bioValid = bioValidate();
 
-  form.reset();
+  if (nameValid && ageValid && locateValid && bioValid) {
+    const name = nameInput.value;
+    const age = ageInput.value;
+    const location = locationInput.value;
+    const bio = bioInput.value;
 
+    cardTitle.textContent = name;
+    ageText.textContent = `Idade: ${age} anos`;
+    locationText.textContent = `Localização: ${location}`;
+    bioText.textContent = `Biografia: ${bio}`;
+
+    form.reset();
+  }
 });
 
 
-function previewProfileImage(event) {
-  const input = event.target;
+function previewProfileImage(e) {
+  const input = e.target;
   if (input.files && input.files[0]) {
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -42,15 +44,19 @@ function previewProfileImage(event) {
   }
 }
 
-
 const form1 = document.querySelector('form')
 const inputss = document.querySelectorAll('.required')
 const spans = document.querySelectorAll('.span-required')
 
+function validateSpecialChars(value){
+const validateRegex = /^[a-zA-Z0-9_ ]*$/;
+return validateRegex.test(value)
+}
+
 
 function setError(index) {
-    inputss[index].style.border = '2px solid #e63636'
-    spans[index].style.display = 'block'
+  inputss[index].style.border = '2px solid #e63636'
+  spans[index].style.display = 'block'
 }
 
 function removeError(index) {
@@ -59,37 +65,49 @@ function removeError(index) {
 }
 
 function nameValidate() {
-  if(inputss[0].value.length < 3) {
+  if(!validateSpecialChars(inputss[0].value)) {
     setError(0)
+    return false;
+  }
+  else if (inputss[0].value.length < 3) {
+    setError(0)
+    return false;
   }
   else {
     removeError(0)
+    return true
   }
 }
 
 function ageValidate() {
   if(inputss[1].value.length != 2) {
     setError(1)
+    return false;
   }
   else{
     removeError(1)
+    return true;
   }
 }
 
 function locateValidate() {
-  if(inputss[2].value.length < 4 ) {
+  if (inputss[2].value.length < 4) {
     setError(2)
+    return false;
   }
   else {
     removeError(2)
+    return true
   }
 }
 
 function bioValidate() {
-  if(inputss[3].value.length < 5 ) {
+  if (inputss[3].value.length < 5) {
     setError(3)
+    return false;
   }
   else {
     removeError(3)
+    return true
   }
 }
