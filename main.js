@@ -49,7 +49,7 @@ const inputss = document.querySelectorAll('.required')
 const spans = document.querySelectorAll('.span-required')
 
 function validateSpecialChars(value){
-const validateRegex = /^[a-zA-Z0-9_ ]*$/;
+const validateRegex = /^[a-zA-Z\u00C0-\u017F0-9_ ]*$/;
 return validateRegex.test(value)
 }
 
