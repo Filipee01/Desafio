@@ -12,10 +12,19 @@
 
 
 .form-label {
-    font-size: 20px;
+    font-size: 18px;
     color: #18c75b;
 }
 
 p {
     font-size: 18px;
+}
+
+#profile-image {
+    margin-left: 15px;
+}
+
+#profile-picture {
+    font-size: 1.2rem;
+    font-weight: bold;
 }
