@@ -83,6 +83,9 @@ function ageValidate() {
   if(inputss[1].value.length != 2) {
     setError(1)
     return false;
+  }else if(inputss[1].value < 0) {
+    setError(1)
+    return false;
   }
   else{
     removeError(1)
