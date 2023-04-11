@@ -20,8 +20,10 @@
                 <div class="wrapImageProfile d-flex justify-content-center">
                     <label for="profile-image" class="mb-3 mt-2">
                         <input type="file" id="profile-image" name="profile-image" accept="image/*" onchange="previewProfileImage(event)">
-                        <img id="preview-profile-image" src="https://via.placeholder.com/150" alt="Imagem de perfil" class="img-fluid rounded-circle mb-3 w-25">
-                        <p id="profile-picture" class="text-center">Foto de perfil</p>
+                        <div class="wrap-content-profile d-flex justify-content-center">
+                            <img id="preview-profile-image" src="https://via.placeholder.com/150" alt="Imagem de perfil" class="img-fluid rounded-circle mb-3 w-25">
+                        </div>
+                        <p id="profile-text" class="text-center">Foto de perfil</p>
                       </label>
                 </div>
                 <h4 class="card-title text-center">Nome do Usuário</h4>
@@ -38,19 +40,23 @@
                     <form id="change-form">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nome:</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Insira seu nome" required>
+                            <input type="text" class="form-control required" id="name" name="name" placeholder="Insira seu nome" oninput="nameValidate()">
+                            <span class="span-required">Nome deve ter no mínimo 3 caracteres</span>
                         </div>
                         <div class="mb-3">
                             <label for="age" class="form-label">Idade:</label>
-                        <input type="number" class="form-control" id="age" name="age" placeholder="Insira sua idade" required>
+                        <input type="number" class="form-control required" id="age" name="age" placeholder="Insira sua idade" oninput="ageValidate()">
+                        <span class="span-required">Digite uma idade válida</span>
                         </div>
                         <div class="mb-3">
                             <label for="location" class="form-label">Localização:</label>
-                            <input type="text" class="form-control" id="location" name="location" placeholder="Insira sua localização" required>
+                            <input type="text" class="form-control required" id="location" name="location" placeholder="Insira sua localização" oninput="locateValidate()">
+                            <span class="span-required">Digite uma localização válida</span>
                           </div>
                           <div class="mb-3">
                             <label for="bio" class="form-label">Biografia:</label>
-                            <textarea name="bio" id="bio" rows="3" class="form-control" placeholder="Insira sua biografia" required></textarea>
+                            <textarea name="bio" id="bio" rows="3" class="form-control required" placeholder="Insira sua biografia" oninput="bioValidate()"></textarea>
+                            <span class="span-required">Biografia deve ser apresentada</span>
                           </div>
                           <div class="wrapButton d-flex justify-content-center">
                           <button type="submit" class="btn btn-primary d-flex justify-content-center w-25">Enviar</button>
@@ -59,7 +65,6 @@
             </div>
         </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.min.js"></script>
       <script src="main.js"></script>
 </body>
 </html>
