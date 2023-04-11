@@ -9,9 +9,6 @@
     font-size: 62.5%;
 }
 
-.backgroundStart{
-    background-color: rgb(34, 34, 34);
-}
 
 body {
     font-size: 1.6rem;
@@ -22,7 +19,6 @@ body {
     background-color: #fafafa;
     color: #333;
     font-weight: bold;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .card-body{
@@ -33,17 +29,24 @@ body {
     font-size: 1.4rem;
 }
 
+.card-tittle {
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+
 #profile-image {
     display: none;
 }
 
 #preview-profile-image{
+    cursor: pointer;
     width: 15rem;
     height: 15rem;
 }
 
 .form-label {
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #fff;
 }
 
@@ -53,9 +56,21 @@ body {
     color: #fff;
 }
 
+.form-control {
+    font-size: 1.2rem !important;
+}
+
 p {
     margin-left: 1rem;
     font-size: 1.8rem;
+}
+
+
+.btn {
+    align-items: center;
+    width: 15rem;
+    height: 3rem;
+    font-size: 1.4rem !important;
 }
 
 #profile-text {
